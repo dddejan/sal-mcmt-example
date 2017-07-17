@@ -1,4 +1,4 @@
-(define-state-type state_type
+(define-state-type state_type (
       (auto_mode_invariant_ok Bool)
       (button_count Real)
       (button_dispatch_time Real)
@@ -60,7 +60,7 @@
       (time_ok Bool)
       (time_prev Real)
       (unique_atomic_time_ok Bool)
-)
+))
 
 
       (definition
