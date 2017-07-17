@@ -427,6 +427,40 @@
     (<= 0 NODE3_PHASE) (< NODE3_PHASE NODE_CLOCK_PERIOD)
     (<= 0 NODE4_PHASE) (< NODE4_PHASE NODE_CLOCK_PERIOD)
     (<= 0 NODE5_PHASE) (< NODE5_PHASE NODE_CLOCK_PERIOD)
+
+    (let ((cs!420 (/= button_count 0))
+              (cs!421 (not button_pressed))
+              (cs!422 (<= time 40))
+              (cs!423 (= time (- 1)))
+              (cs!424 (not seen_rising_edge))
+              (cs!425 (<= time 20)))
+          (let ((cs!405 (<= time time_arri!0))
+                (cs!406 (<= time time_arri!1))
+                (cs!407 (<= time time_arri!2))
+                (cs!408 (<= time time_arri!3))
+                (cs!409 (<= time time_arri!4))
+                (cs!410 (= time_arri!0 (- 1)))
+                (cs!411 (= time_arri!1 (- 1)))
+                (cs!412 (= time_arri!2 (- 1)))
+                (cs!413 (= time_arri!3 (- 1)))
+                (cs!414 (= time_arri!4 (- 1)))
+                (cs!415 (/= time_arri!4 (- 1)))
+                (cs!416 (/= time_arri!0 (- 1)))
+                (cs!417 (/= time_arri!1 (- 1)))
+                (cs!418 (/= time_arri!2 (- 1)))
+                (cs!419 (/= time_arri!3 (- 1))))
+              (and
+                cs!405
+                cs!406
+                cs!407
+                cs!408
+                cs!409
+                (or
+                  (= time time_arri!0)
+                  (= time time_arri!1)
+                  (= time time_arri!2)
+                  (= time time_arri!3)
+                  (= time time_arri!4)))))
   )
 )
 
