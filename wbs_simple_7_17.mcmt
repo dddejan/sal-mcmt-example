@@ -428,6 +428,16 @@
     (<= 0 NODE4_PHASE) (< NODE4_PHASE NODE_CLOCK_PERIOD)
     (<= 0 NODE5_PHASE) (< NODE5_PHASE NODE_CLOCK_PERIOD)
 
+    (<= 0 button_dispatch_time)
+    (<= 0 button_width)
+    (<= 0 time)
+    (<= 0 time_arri!0)
+    (<= 0 time_arri!1)
+    (<= 0 time_arri!2)
+    (<= 0 time_arri!3)
+    (<= 0 time_arri!4)
+    (<= 0 time_prev)
+
     (let ((cs!420 (/= button_count 0))
               (cs!421 (not button_pressed))
               (cs!422 (<= time 40))
