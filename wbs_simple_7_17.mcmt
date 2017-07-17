@@ -64,27 +64,27 @@
 
 
       (definition
-        (let ((cs!420 Bool (/= button_count 0))
-              (cs!421 Bool (not button_pressed))
-              (cs!422 Bool (<= time 40))
-              (cs!423 Bool (= time -1))
-              (cs!424 Bool (not seen_rising_edge))
-              (cs!425 Bool (<= time 20)))
-          (let ((cs!405 Bool (<= time time_arri!0))
-                (cs!406 Bool (<= time time_arri!1))
-                (cs!407 Bool (<= time time_arri!2))
-                (cs!408 Bool (<= time time_arri!3))
-                (cs!409 Bool (<= time time_arri!4))
-                (cs!410 Bool (= time_arri!0 -1))
-                (cs!411 Bool (= time_arri!1 -1))
-                (cs!412 Bool (= time_arri!2 -1))
-                (cs!413 Bool (= time_arri!3 -1))
-                (cs!414 Bool (= time_arri!4 -1))
-                (cs!415 Bool (/= time_arri!4 -1))
-                (cs!416 Bool (/= time_arri!0 -1))
-                (cs!417 Bool (/= time_arri!1 -1))
-                (cs!418 Bool (/= time_arri!2 -1))
-                (cs!419 Bool (/= time_arri!3 -1)))
+        (let ((cs!420 (/= button_count 0))
+              (cs!421 (not button_pressed))
+              (cs!422 (<= time 40))
+              (cs!423 (= time -1))
+              (cs!424 (not seen_rising_edge))
+              (cs!425 (<= time 20)))
+          (let ((cs!405 (<= time time_arri!0))
+                (cs!406 (<= time time_arri!1))
+                (cs!407 (<= time time_arri!2))
+                (cs!408 (<= time time_arri!3))
+                (cs!409 (<= time time_arri!4))
+                (cs!410 (= time_arri!0 -1))
+                (cs!411 (= time_arri!1 -1))
+                (cs!412 (= time_arri!2 -1))
+                (cs!413 (= time_arri!3 -1))
+                (cs!414 (= time_arri!4 -1))
+                (cs!415 (/= time_arri!4 -1))
+                (cs!416 (/= time_arri!0 -1))
+                (cs!417 (/= time_arri!1 -1))
+                (cs!418 (/= time_arri!2 -1))
+                (cs!419 (/= time_arri!3 -1)))
             (and
               (and
                 cs!405
@@ -304,71 +304,71 @@
 )
 
 (define-transition transition state_type
-        (let ((cs!363 Bool (= button_pressed_prev' button_pressed))
-              (cs!364 Bool
+        (let ((cs!363 (= button_pressed_prev' button_pressed))
+              (cs!364
                     (= chan_b_mon_disagree_count' chan_b_mon_disagree_count))
-              (cs!365 Bool
+              (cs!365
                     (= chan_b_in_control_prev' chan_b_in_control_prev))
-              (cs!366 Bool (= chan_b_in_control' chan_b_in_control))
-              (cs!367 Bool
+              (cs!366 (= chan_b_in_control' chan_b_in_control))
+              (cs!367
                     (=
                       chan_b_mon_agreement_failure'
                       chan_b_mon_agreement_failure))
-              (cs!368 Bool
+              (cs!368
                     (=
                       chan_b_mon_prev_button_pressed'
                       chan_b_mon_prev_button_pressed))
-              (cs!369 Bool
+              (cs!369
                     (= chan_b_mon_auto_mode' chan_b_mon_auto_mode))
-              (cs!371 Bool (= fault_arri!4' fault_arri!4))
-              (cs!372 Bool (= button_frame_count' button_frame_count))
-              (cs!373 Bool (= fault_arri!0' fault_arri!0))
-              (cs!374 Bool
+              (cs!371 (= fault_arri!4' fault_arri!4))
+              (cs!372 (= button_frame_count' button_frame_count))
+              (cs!373 (= fault_arri!0' fault_arri!0))
+              (cs!374
                     (= button_dispatch_time' button_dispatch_time))
-              (cs!375 Bool (= button_count' button_count))
-              (cs!376 Bool (= button_pressed_prev' button_pressed_prev))
-              (cs!377 Bool (= button_pressed' button_pressed))
-              (cs!379 Bool (= fault_arri!1' fault_arri!1))
-              (cs!380 Bool
+              (cs!375 (= button_count' button_count))
+              (cs!376 (= button_pressed_prev' button_pressed_prev))
+              (cs!377 (= button_pressed' button_pressed))
+              (cs!379 (= fault_arri!1' fault_arri!1))
+              (cs!380
                     (=
                       chan_a_com_prev_button_pressed'
                       chan_a_com_prev_button_pressed))
-              (cs!381 Bool
+              (cs!381
                     (= chan_a_com_auto_mode' chan_a_com_auto_mode))
-              (cs!384 Bool
+              (cs!384
                     (= chan_a_mon_disagree_count' chan_a_mon_disagree_count))
-              (cs!385 Bool (= fault_arri!2' fault_arri!2))
-              (cs!386 Bool
+              (cs!385 (= fault_arri!2' fault_arri!2))
+              (cs!386
                     (= chan_a_in_control_prev' chan_a_in_control_prev))
-              (cs!387 Bool (= chan_a_in_control' chan_a_in_control))
-              (cs!388 Bool
+              (cs!387 (= chan_a_in_control' chan_a_in_control))
+              (cs!388
                     (=
                       chan_a_mon_agreement_failure'
                       chan_a_mon_agreement_failure))
-              (cs!389 Bool
+              (cs!389
                     (=
                       chan_a_mon_prev_button_pressed'
                       chan_a_mon_prev_button_pressed))
-              (cs!390 Bool
+              (cs!390
                     (= chan_a_mon_auto_mode' chan_a_mon_auto_mode))
-              (cs!392 Bool (= fault_arri!3' fault_arri!3))
-              (cs!394 Bool
+              (cs!392 (= fault_arri!3' fault_arri!3))
+              (cs!394
                     (=
                       chan_b_com_prev_button_pressed'
                       chan_b_com_prev_button_pressed))
-              (cs!395 Bool
+              (cs!395
                     (= chan_b_com_auto_mode' chan_b_com_auto_mode))
-              (cs!397 Bool (= button_count' (+ button_count 1)))
-              (cs!399 Bool
+              (cs!397 (= button_count' (+ button_count 1)))
+              (cs!399
                     (= button_frame_count' (+ button_frame_count 1))))
-          (let ((cs!370 Bool (= time_arri!4' time_arri!4))
-                (cs!378 Bool (= time_arri!0' time_arri!0))
-                (cs!382 Bool (= time time_arri!0))
-                (cs!383 Bool (= time_arri!1' time_arri!1))
-                (cs!391 Bool (= time_arri!2' time_arri!2))
-                (cs!393::real (+ time_arri!0 40))
-                (cs!396 Bool (= time_arri!3' time_arri!3))
-                (cs!398 Bool (= button_dispatch_time' time_arri!0)))
+          (let ((cs!370 (= time_arri!4' time_arri!4))
+                (cs!378 (= time_arri!0' time_arri!0))
+                (cs!382 (= time time_arri!0))
+                (cs!383 (= time_arri!1' time_arri!1))
+                (cs!391 (= time_arri!2' time_arri!2))
+                (cs!393 (+ time_arri!0 40))
+                (cs!396 (= time_arri!3' time_arri!3))
+                (cs!398 (= button_dispatch_time' time_arri!0)))
             (and
               (or
                 (and
