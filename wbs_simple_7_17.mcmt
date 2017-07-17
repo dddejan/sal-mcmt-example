@@ -60,208 +60,21 @@
       (time_ok Bool)
       (time_prev Real)
       (unique_atomic_time_ok Bool)
+      ;; Missed by SAL
+      (NODE2_PHASE Real)
+      (NODE3_PHASE Real)
+      (NODE4_PHASE Real)
+      (NODE5_PHASE Real)
 ))
 
-
-      (definition
-        (let ((cs!420 (/= button_count 0))
-              (cs!421 (not button_pressed))
-              (cs!422 (<= time 40))
-              (cs!423 (= time -1))
-              (cs!424 (not seen_rising_edge))
-              (cs!425 (<= time 20)))
-          (let ((cs!405 (<= time time_arri!0))
-                (cs!406 (<= time time_arri!1))
-                (cs!407 (<= time time_arri!2))
-                (cs!408 (<= time time_arri!3))
-                (cs!409 (<= time time_arri!4))
-                (cs!410 (= time_arri!0 -1))
-                (cs!411 (= time_arri!1 -1))
-                (cs!412 (= time_arri!2 -1))
-                (cs!413 (= time_arri!3 -1))
-                (cs!414 (= time_arri!4 -1))
-                (cs!415 (/= time_arri!4 -1))
-                (cs!416 (/= time_arri!0 -1))
-                (cs!417 (/= time_arri!1 -1))
-                (cs!418 (/= time_arri!2 -1))
-                (cs!419 (/= time_arri!3 -1)))
-            (and
-              (and
-                cs!405
-                cs!406
-                cs!407
-                cs!408
-                cs!409
-                (or
-                  (= time time_arri!0)
-                  (= time time_arri!1)
-                  (= time time_arri!2)
-                  (= time time_arri!3)
-                  (= time time_arri!4)))
-              (=
-                positive_time_values_ok
-                (and
-                  (or (not (< time 0)) cs!423)
-                  (or (not (< time_arri!0 0)) cs!410)
-                  (or (not (< time_arri!1 0)) cs!411)
-                  (or (not (< time_arri!2 0)) cs!412)
-                  (or (not (< time_arri!3 0)) cs!413)
-                  (or (not (< time_arri!4 0)) cs!414)))
-              (=
-                monotonic_time_values_ok
-                (or
-                  (not cs!405)
-                  (not cs!406)
-                  (not cs!407)
-                  (not cs!408)
-                  (not cs!409)
-                  (and
-                    (/= time time_arri!0)
-                    (/= time time_arri!1)
-                    (/= time time_arri!2)
-                    (/= time time_arri!3)
-                    (/= time time_arri!4))
-                  (and
-                    (or (not (< time_arri!0 time)) cs!410)
-                    (or (not (< time_arri!1 time)) cs!411)
-                    (or (not (< time_arri!2 time)) cs!412)
-                    (or (not (< time_arri!3 time)) cs!413)
-                    (or (not (< time_arri!4 time)) cs!414))))
-              (=
-                unique_atomic_time_ok
-                (and
-                  (or cs!416 (and cs!417 cs!418 cs!419 cs!415))
-                  (or cs!417 (and cs!416 cs!418 cs!419 cs!415))
-                  (or cs!418 (and cs!416 cs!417 cs!419 cs!415))
-                  (or cs!419 (and cs!416 cs!417 cs!418 cs!415))
-                  (or cs!415 (and cs!416 cs!417 cs!418 cs!419))))
-              (=
-                clock_phase_ok
-                (and
-                  (or
-                    (<= time_arri!1 time_arri!2)
-                    (<= (- time_arri!1 time_arri!2) 20))
-                  (or
-                    (<= time_arri!2 time_arri!1)
-                    (<= (- time_arri!2 time_arri!1) 20))
-                  (or
-                    (<= time_arri!3 time_arri!4)
-                    (<= (- time_arri!3 time_arri!4) 20))
-                  (or
-                    (<= time_arri!4 time_arri!3)
-                    (<= (- time_arri!4 time_arri!3) 20))
-                  (or
-                    (<= time_arri!3 time_arri!2)
-                    (<= (- time_arri!3 time_arri!2) 20))
-                  (or
-                    (<= time_arri!2 time_arri!3)
-                    (<= (- time_arri!2 time_arri!3) 20))
-                  (or
-                    (<= time_arri!3 time_arri!1)
-                    (<= (- time_arri!3 time_arri!1) 20))
-                  (or
-                    (<= time_arri!1 time_arri!3)
-                    (<= (- time_arri!1 time_arri!3) 20))
-                  (or
-                    (<= time_arri!4 time_arri!2)
-                    (<= (- time_arri!4 time_arri!2) 20))
-                  (or
-                    (<= time_arri!2 time_arri!4)
-                    (<= (- time_arri!2 time_arri!4) 20))
-                  (or
-                    (<= time_arri!4 time_arri!1)
-                    (<= (- time_arri!4 time_arri!1) 20))
-                  (or
-                    (<= time_arri!1 time_arri!4)
-                    (<= (- time_arri!1 time_arri!4) 20))))
-              (=
-                clock_invariant_ok
-                (and
-                  positive_time_values_ok
-                  monotonic_time_values_ok
-                  unique_atomic_time_ok
-                  clock_phase_ok))
-              (=
-                button_phase_ok
-                (and
-                  (or
-                    (<= time_arri!0 time_arri!1)
-                    (<= (- time_arri!0 time_arri!1) 40))
-                  (or
-                    (<= time_arri!1 time_arri!0)
-                    (<= (- time_arri!1 time_arri!0) 40))
-                  (or
-                    (<= time_arri!0 time_arri!2)
-                    (<= (- time_arri!0 time_arri!2) 40))
-                  (or
-                    (<= time_arri!2 time_arri!0)
-                    (<= (- time_arri!2 time_arri!0) 40))
-                  (or
-                    (<= time_arri!0 time_arri!3)
-                    (<= (- time_arri!0 time_arri!3) 40))
-                  (or
-                    (<= time_arri!3 time_arri!0)
-                    (<= (- time_arri!3 time_arri!0) 40))
-                  (or
-                    (<= time_arri!0 time_arri!4)
-                    (<= (- time_arri!0 time_arri!4) 40))
-                  (or
-                    (<= time_arri!4 time_arri!0)
-                    (<= (- time_arri!4 time_arri!0) 40))))
-              (=
-                button_invariant_ok
-                (and
-                  (or
-                    cs!420
-                    (and
-                      cs!421
-                      (= button_dispatch_time 20)
-                      (= time_arri!0 20)
-                      cs!425))
-                  (or (/= button_count 1) cs!423 button_pressed)
-                  (or (<= button_count 1) cs!421)))
-              (=
-                auto_mode_invariant_ok
-                (or
-                  cs!420
-                  (and
-                    (not chan_a_com_auto_mode)
-                    (not chan_a_mon_auto_mode)
-                    (= chan_a_mon_disagree_count 0)
-                    (not chan_a_com_prev_button_pressed)
-                    (not chan_a_mon_prev_button_pressed)
-                    cs!421
-                    (not chan_b_com_auto_mode)
-                    (not chan_b_mon_auto_mode)
-                    (= chan_b_mon_disagree_count 0)
-                    (not chan_b_com_prev_button_pressed)
-                    (not chan_b_mon_prev_button_pressed))))
-              (=
-                congruent_sample_a_ok
-                (or
-                  cs!424
-                  cs!422
-                  (= chan_a_mon_auto_mode chan_a_com_auto_mode)))
-              (=
-                congruent_sample_b_ok
-                (or
-                  cs!424
-                  cs!422
-                  (= chan_b_mon_auto_mode chan_b_com_auto_mode)))
-              (=
-                congruent_sample_ok
-                (or congruent_sample_a_ok congruent_sample_b_ok))
-              (=
-                redge_ok
-                (and
-                  (or cs!422 seen_rising_edge)
-                  (or cs!423 (not (< time 20)) cs!424)))
-              (=
-                channel_in_control_ok
-                (or
-                  cs!425
-                  channel_in_control
-                  (< (- time lost_control_time) 20)))))))
+;; TOTAL_TASKS : NATURAL = 5;
+;; NODE_CLOCK_PERIOD : TIME = 20;
+;; BUTTON_PERIOD : TIME = 40;
+(define-constant TOTAL_TASKS 5)
+(define-constant NODE_CLOCK_PERIOD 20)
+(define-constant BUTTON_PERIOD 40)
+;; BUTTON_PHASE:  {T : TIME | T = NODE_CLOCK_PERIOD};
+(define-constant BUTTON_PHASE 20)
 
 (define-states initial_states state_type
         (and
@@ -375,11 +188,11 @@
                   (or
                     (and
                       cs!382
-                      (NOT button_pressed)
+                      (not button_pressed)
                       (= button_count 0)
                       (= button_pressed' true)
                       (and
-                        (not (< time_arri!0' (+ time_arri!0 20001/1000)))
+                        (not (< time_arri!0' (+ time_arri!0 (/ 20001 1000))))
                         (< time_arri!0' cs!393))
                       cs!397
                       cs!363
@@ -438,8 +251,8 @@
                     chan_a_com_auto_mode'
                     (ite (and
                           button_pressed
-                          (NOT chan_a_com_prev_button_pressed))
-                      (NOT chan_a_com_auto_mode)
+                          (not chan_a_com_prev_button_pressed))
+                      (not chan_a_com_auto_mode)
                       chan_a_com_auto_mode))
                   (= chan_a_com_prev_button_pressed' button_pressed)
                   cs!379
@@ -510,8 +323,8 @@
                     chan_b_com_auto_mode'
                     (ite (and
                           button_pressed
-                          (NOT chan_b_com_prev_button_pressed))
-                      (NOT chan_b_com_auto_mode)
+                          (not chan_b_com_prev_button_pressed))
+                      (not chan_b_com_auto_mode)
                       chan_b_com_auto_mode))
                   (= chan_b_com_prev_button_pressed' button_pressed)
                   cs!392
@@ -549,8 +362,8 @@
                     chan_b_mon_auto_mode'
                     (ite (and
                           button_pressed
-                          (NOT chan_b_mon_prev_button_pressed))
-                      (NOT chan_b_mon_auto_mode)
+                          (not chan_b_mon_prev_button_pressed))
+                      (not chan_b_mon_auto_mode)
                       chan_b_mon_auto_mode))
                   (=
                     chan_b_mon_disagree_count'
@@ -562,7 +375,7 @@
                   (=
                     chan_b_mon_agreement_failure'
                     (not (<= chan_b_mon_disagree_count' 2)))
-                  (= chan_b_in_control' (NOT chan_b_mon_agreement_failure'))
+                  (= chan_b_in_control' (not chan_b_mon_agreement_failure'))
                   (= chan_b_in_control_prev' chan_b_in_control)
                   (= chan_b_mon_prev_button_pressed' button_pressed)
                   cs!371
@@ -589,7 +402,7 @@
                   cs!394
                   cs!395
                   cs!396))
-              (= time_prev' (ite (= time -1) time_prev time))
+              (= time_prev' (ite (= time (- 1)) time_prev time))
               (=
                 channel_in_control'
                 (or chan_a_in_control chan_b_in_control))
@@ -608,4 +421,13 @@
 
 (define-transition-system T state_type initial_states transition)
 
-(query T (or chan_b_in_control chan_a_in_control)))
+(assume T
+  (and
+    (<= 0 NODE2_PHASE) (< NODE2_PHASE NODE_CLOCK_PERIOD)
+    (<= 0 NODE3_PHASE) (< NODE3_PHASE NODE_CLOCK_PERIOD)
+    (<= 0 NODE4_PHASE) (< NODE4_PHASE NODE_CLOCK_PERIOD)
+    (<= 0 NODE5_PHASE) (< NODE5_PHASE NODE_CLOCK_PERIOD)
+  )
+)
+
+(query T (or chan_b_in_control chan_a_in_control))
