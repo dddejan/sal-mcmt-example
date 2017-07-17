@@ -262,7 +262,7 @@
                   cs!425
                   channel_in_control
                   (< (- time lost_control_time) 20)))))))
-                  
+
 (define-states initial_states state_type
         (and
           (= time_arri!0 BUTTON_PHASE)
@@ -302,8 +302,8 @@
           (= seen_rising_edge false)
           (= channel_in_control true))
 )
-          
-      (transition
+
+(define-transition transition state_type
         (let ((cs!363 Bool (= button_pressed_prev' button_pressed))
               (cs!364 Bool
                     (= chan_b_mon_disagree_count' chan_b_mon_disagree_count))
@@ -605,59 +605,7 @@
                   seen_rising_edge))
               (= clock_phase_invariant_ok' clock_phase_invariant_ok)
               (= time_ok' time_ok)))))
-      (skip
-        (and
-          (= button_frame_count' button_frame_count)
-          (= fault_arri!0' fault_arri!0)
-          (= button_dispatch_time' button_dispatch_time)
-          (= button_count' button_count)
-          (= button_pressed_prev' button_pressed_prev)
-          (= button_pressed' button_pressed)
-          (= time_arri!0' time_arri!0)
-          (= fault_arri!1' fault_arri!1)
-          (=
-            chan_a_com_prev_button_pressed'
-            chan_a_com_prev_button_pressed)
-          (= chan_a_com_auto_mode' chan_a_com_auto_mode)
-          (= time_arri!1' time_arri!1)
-          (= chan_a_mon_disagree_count' chan_a_mon_disagree_count)
-          (= fault_arri!2' fault_arri!2)
-          (= chan_a_in_control_prev' chan_a_in_control_prev)
-          (= chan_a_in_control' chan_a_in_control)
-          (=
-            chan_a_mon_agreement_failure'
-            chan_a_mon_agreement_failure)
-          (=
-            chan_a_mon_prev_button_pressed'
-            chan_a_mon_prev_button_pressed)
-          (= chan_a_mon_auto_mode' chan_a_mon_auto_mode)
-          (= time_arri!2' time_arri!2)
-          (= fault_arri!3' fault_arri!3)
-          (=
-            chan_b_com_prev_button_pressed'
-            chan_b_com_prev_button_pressed)
-          (= chan_b_com_auto_mode' chan_b_com_auto_mode)
-          (= time_arri!3' time_arri!3)
-          (= chan_b_mon_disagree_count' chan_b_mon_disagree_count)
-          (= fault_arri!4' fault_arri!4)
-          (= chan_b_in_control_prev' chan_b_in_control_prev)
-          (= chan_b_in_control' chan_b_in_control)
-          (=
-            chan_b_mon_agreement_failure'
-            chan_b_mon_agreement_failure)
-          (=
-            chan_b_mon_prev_button_pressed'
-            chan_b_mon_prev_button_pressed)
-          (= chan_b_mon_auto_mode' chan_b_mon_auto_mode)
-          (= time_arri!4' time_arri!4)
-          (= seen_rising_edge' seen_rising_edge)
-          (= channel_in_control' channel_in_control)
-          (= lost_control_time' lost_control_time)
-          (= time_prev' time_prev)
-          (= clock_phase_invariant_ok' clock_phase_invariant_ok)
-          (= time_ok' time_ok)))
-      (valid-input true)
-      (valid-state true)
-      (valid-constant true))
-    (G (or chan_b_in_control chan_a_in_control)))
-sal > 
+
+(define-transition-system T state_type initial_states transition)
+
+(query T (or chan_b_in_control chan_a_in_control)))
