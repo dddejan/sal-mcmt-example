@@ -262,7 +262,8 @@
                   cs!425
                   channel_in_control
                   (< (- time lost_control_time) 20)))))))
-      (initialization
+                  
+(define-states initial_states state_type
         (and
           (= time_arri!0 BUTTON_PHASE)
           (= button_pressed false)
@@ -299,7 +300,9 @@
           (= time_prev 0)
           (= lost_control_time 0)
           (= seen_rising_edge false)
-          (= channel_in_control true)))
+          (= channel_in_control true))
+)
+          
       (transition
         (let ((cs!363 Bool (= button_pressed_prev' button_pressed))
               (cs!364 Bool
